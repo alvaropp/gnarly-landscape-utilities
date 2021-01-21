@@ -119,9 +119,9 @@ def core_mapper():
 
             sim_config = read_csv_sim_file(table)
 
-            for i, (run_name, run_config) in enumerate(sim_config.items()):
+            for i, run_config in enumerate(sim_config.values()):
                 # Get inputs for model run
-                outputBaseName = run_name
+                outputBaseName = run_config["simulation_name"]
                 habitatRaster = run_config["habitat_raster_file"]
                 resistanceRaster = run_config["resistance_raster_file"]
                 outputBaseFolder = run_config["output_directory"]
@@ -163,13 +163,11 @@ def core_mapper():
                     gprint("Skipping expansion step.")
                     expandCWDValue = 0
 
-                removeCWDHalos = bool(run_config["trim_back_expanded_cores"])
+                removeCWDHalos = run_config["trim_back_expanded_cores"] != "False"
                 minCoreArea = int(run_config["min_core_area_size"])
-                stampCores = bool(
-                    run_config["exclude_nonhabitat_from_core_size_calcs"]
-                )  ## used to convert habitat model to binary
-                appendCoreStats = bool(run_config["append_core_stats"])
-                deleteIntermediates = bool(run_config["delete_temporary_files"])
+                stampCores = run_config["exclude_nonhabitat_from_core_size_calcs"] != "False"
+                appendCoreStats = run_config["append_core_stats"] != "False"
+                deleteIntermediates = run_config["delete_temporary_files"] != "False"
 
                 gprint("Starting core processing for output: " + outputBaseName + "\n")
 

@@ -34,13 +34,11 @@ for i, (run_name, run_config) in enumerate(sim_config.items()):
         "min_habitat_value_per_pixel"
     ]  ## used to convert habitat model to binary
     expandCWDValue = run_config["expand_cores_CWD_value"]  ## cost-weighted distance
-    removeCWDHalos = bool(run_config["trim_back_expanded_cores"])
+    removeCWDHalos = run_config["trim_back_expanded_cores"] != "False"
     minCoreArea = int(run_config["min_core_area_size"])
-    stampCores = bool(
-        run_config["exclude_nonhabitat_from_core_size_calcs"]
-    )  ## used to convert habitat model to binary
-    appendCoreStats = bool(run_config["append_core_stats"])
-    deleteIntermediates = bool(run_config["delete_temporary_files"])
+    stampCores = run_config["exclude_nonhabitat_from_core_size_calcs"] != "False"  ## used to convert habitat model to binary
+    appendCoreStats = run_config["append_core_stats"] != "False"
+    deleteIntermediates = run_config["delete_temporary_files"] != "False"
 
     print(
         f"{outputBaseName}, {habitatRaster}, {resistanceRaster}, {outputBaseFolder}, ",
