@@ -1,0 +1,8 @@
+simulation_name,habitat_raster_file,resistance_raster_file,output_directory,moving_window_radius,min_average_habitat_value,min_habitat_value_per_pixel,expand_cores_CWD_value,trim_back_expanded_cores,min_core_area_size,exclude_nonhabitat_from_core_size_calcs,append_core_stats,delete_temporary_files
+Demo1,C:\Gnarly\CoreMapperDemo\habitat,C:\Gnarly\CoreMapperDemo\resistance,C:\Gnarly\output,500,0.8,0.8,2000,False,25000000,False,True,False
+Demo2,C:\Gnarly\CoreMapperDemo\habitat,C:\Gnarly\CoreMapperDemo\resistance,C:\Gnarly\output,500,0.9,0.9,2000,False,25000000,False,True,True
+Demo3,C:\Gnarly\CoreMapperDemo\habitat,C:\Gnarly\CoreMapperDemo\resistance,C:\Gnarly\output,500,0.8,0.8,0,False,25000000,False,True,True
+Demo4,C:\Gnarly\CoreMapperDemo\habitat,C:\Gnarly\CoreMapperDemo\resistance,C:\Gnarly\output,1000,0.8,0.8,2000,False,25000000,False,True,True
+Demo5,C:\Gnarly\CoreMapperDemo\habitat,C:\Gnarly\CoreMapperDemo\resistance,C:\Gnarly\output,500,0.8,0.8,2000,False,50000000,False,True,True
+Demo6,C:\Gnarly\CoreMapperDemo\habitat,C:\Gnarly\CoreMapperDemo\resistance,C:\Gnarly\output,500,0.8,0.8,2000,True,25000000,False,True,True
+Demo7,C:\Gnarly\CoreMapperDemo\habitat,C:\Gnarly\CoreMapperDemo\resistance,C:\Gnarly\output,500,0.8,0.8,2000,True,25000000,True,True,True
