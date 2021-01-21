@@ -144,18 +144,10 @@ def core_mapper():
                 gprint("\n***************************************")
                 gprint("PROCESSING " + outputBaseName + " run.\n")
 
-                movingWindowRadius = run_config[
-                    "moving_window_radius"
-                ]  ## Euclidean distance
-                minAvgHabValue = run_config[
-                    "min_average_habitat_value"
-                ]  ## used in the moving window
-                binaryThreshold = run_config[
-                    "min_habitat_value_per_pixel"
-                ]  ## used to convert habitat model to binary
-                expandCWDValue = run_config[
-                    "expand_cores_CWD_value"
-                ]  ## cost-weighted distance
+                movingWindowRadius = float(run_config["moving_window_radius"])
+                minAvgHabValue = float(run_config["min_average_habitat_value"])
+                binaryThreshold = float(run_config["min_habitat_value_per_pixel"])
+                expandCWDValue = float(run_config["expand_cores_CWD_value"])
                 if expandCWDValue > 0 and resistanceRaster is None:
                     gprint(
                         "Warning: a CWD expansion value was entered but no resistance raster was specified."
@@ -163,11 +155,11 @@ def core_mapper():
                     gprint("Skipping expansion step.")
                     expandCWDValue = 0
 
-                removeCWDHalos = run_config["trim_back_expanded_cores"] != "False"
+                removeCWDHalos = float(run_config["trim_back_expanded_cores"] != "False")
                 minCoreArea = int(run_config["min_core_area_size"])
-                stampCores = run_config["exclude_nonhabitat_from_core_size_calcs"] != "False"
-                appendCoreStats = run_config["append_core_stats"] != "False"
-                deleteIntermediates = run_config["delete_temporary_files"] != "False"
+                stampCores = float(run_config["exclude_nonhabitat_from_core_size_calcs"] != "False")
+                appendCoreStats = float(run_config["append_core_stats"] != "False")
+                deleteIntermediates = float(run_config["delete_temporary_files"] != "False")
 
                 gprint("Starting core processing for output: " + outputBaseName + "\n")
 
